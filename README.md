@@ -1,7 +1,11 @@
 # Roommate-Grocery-Accountant
 
-A simple console app developed in C# using ChatGPT, that helps roomates calculate their grocery bills easier.
+A simple console app developed in C# with the help of ChatGPT, that helps roomates calculate their grocery bills easier.
+
 The tool takes in a specially structured CSV data and outputs the share cost of each person.
+
+The link to the conversation and prompts I had with ChatGPT
+https://chatgpt.com/share/6747ea75-4c60-8009-91e0-34548eee0be0
 
 ## Example Data & Results
 
@@ -73,7 +77,3 @@ Total number of items: 23
 Grand Total: $119.66
 ```
 
-## ChatGPT conversation
-
-The link to the conversation and prompts I had with ChatGPT
-https://chatgpt.com/share/6747ea75-4c60-8009-91e0-34548eee0be0
