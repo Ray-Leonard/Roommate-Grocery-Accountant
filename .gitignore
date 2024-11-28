@@ -1,0 +1,59 @@
+# Build Folders
+bin/
+obj/
+
+# VS Code files
+.vscode/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.vspx
+*.vsp
+
+# Visual Studio Code workspace files
+.vscode/*
+
+# Auto-generated files
+*.exe
+*.dll
+*.pdb
+*.log
+
+# Visual Studio folder
+.vs/
+
+# NuGet Packages
+packages/
+*.nupkg
+project.lock.json
+*.nuget.props
+*.nuget.targets
+
+# Rider & Resharper
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Windows thumbnail cache files
+Desktop.ini
+
+# Folder config file
+$RECYCLE.BIN/
+
+# Mac OS clutter
+.DS_Store
+
+# Backup files
+*.bak
+
+# Log files
+*.log
+
+# Crash dumps
+*.dmp
