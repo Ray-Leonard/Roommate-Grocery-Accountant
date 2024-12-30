@@ -100,37 +100,45 @@ namespace RoommateGroceryAccountant
                 }
             }
 
+
             Console.Clear();
             // Generate a report for each person
-            foreach (var entry in personItems)
+            string resultFileName = Path.Combine(directory, Path.GetFileNameWithoutExtension(selectedFile) + "_results.txt");
+            Console.WriteLine(resultFileName);
+            using (FileStream stream = new FileStream(resultFileName, FileMode.Create))
+            using (StreamWriter writer = new StreamWriter(stream))
             {
-                string personName = entry.Key;
-                List<Item> items = entry.Value;
-
-                Console.WriteLine("============================================");
-                Console.WriteLine($"{personName} pays for the following items:");
-                float totalExpense = 0;
-
-                // Print each item that the person is responsible for
-                foreach (var item in items)
+                foreach (var entry in personItems)
                 {
-                    string itemName = item.GetNameShared();
-                    float itemPrice = item.GetPriceShared();
-                    Console.WriteLine($"{itemName}, ${itemPrice:F2}");
-                    totalExpense += itemPrice;
+                    string personName = entry.Key;
+                    List<Item> items = entry.Value;
+
+                    writer.WriteLine("============================================");
+                    writer.WriteLine($"{personName} pays for the following items:");
+                    float totalExpense = 0;
+
+                    // Print each item that the person is responsible for
+                    foreach (var item in items)
+                    {
+                        string itemName = item.GetNameShared();
+                        float itemPrice = item.GetPriceShared();
+                        writer.WriteLine($"{itemName}, ${itemPrice:F2}");
+                        totalExpense += itemPrice;
+                    }
+
+                    // Print the total expense for the person
+                    writer.WriteLine($"Total: ${totalExpense:F2}\n");
+                    writer.WriteLine("============================================");
                 }
 
-                // Print the total expense for the person
-                Console.WriteLine($"Total: ${totalExpense:F2}\n");
-                Console.WriteLine("============================================");
+                // Calculate and print the grand total and total number of items
+                float grandTotal = allItems.Sum(item => item.Price);
+                int totalItems = allItems.Count;
+
+                writer.WriteLine($"Total number of items: {totalItems}");
+                writer.WriteLine($"Grand Total: ${grandTotal:F2}");
             }
-
-            // Calculate and print the grand total and total number of items
-            float grandTotal = allItems.Sum(item => item.Price);
-            int totalItems = allItems.Count;
-
-            Console.WriteLine($"Total number of items: {totalItems}");
-            Console.WriteLine($"Grand Total: ${grandTotal:F2}");
+            Console.WriteLine($"Results written to {resultFileName}");
         }
     }
 }
