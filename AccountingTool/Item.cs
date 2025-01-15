@@ -10,7 +10,7 @@ namespace RoommateGroceryAccountant
 
         public string GetNameShared()
         {
-            return $"1/{Share} {Name}";
+            return $"1/{Share} * {Name}";
         }
 
         public float GetPriceShared()
